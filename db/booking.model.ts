@@ -66,4 +66,4 @@ BookingSchema.index({ eventId: 1, createdAt: -1 });
 // Create index on email for user booking lookups
 BookingSchema.index({ email: 1 });
 
-export const Booking = mongoose.model<IBooking>("Booking", BookingSchema);
+export const Booking = mongoose.models.Booking || mongoose.model<IBooking>("Booking", BookingSchema);

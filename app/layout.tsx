@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-      <Navbar />
+        <Navbar />
 
         <div className="absolute w-full min-h-screen inset-0 -z-50 top-0">
           <LightRays

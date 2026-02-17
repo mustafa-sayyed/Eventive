@@ -1,16 +1,18 @@
-'use server';
-import {connectDB} from "@/db/db";
-import {Event} from "@/db/event.model";
-
+"use server";
+import { connectDB } from "@/db/db";
+import { Event } from "@/db/event.model";
 
 export const getSimilarEventsBySlug = async (slug: string) => {
-    try {
-        await connectDB();
-        const event = await Event.findOne({ slug });
+  try {
+    await connectDB();
+    const event = await Event.findOne({ slug });
 
-        return await Event.find({ _id: { $ne: event._id }, tags: { $in: event.tags } }).lean();
-    } catch (error) {
-        console.error('Error fetching similar events:', error);
-        return [];
-    }
-}
+    return await Event.find({
+      _id: { $ne: event._id },
+      tags: { $in: event.tags },
+    }).lean();
+  } catch (error) {
+    console.error("Error fetching similar events:", error);
+    return [];
+  }
+};

@@ -110,7 +110,7 @@ const EventSchema = new Schema<IEvent>(
   }
 );
 
-EventSchema.pre('save', function (next: () => void) {
+EventSchema.pre('save', function (next) {
   const event = this as IEvent;
 
   if (event.isModified('title') || event.isNew) {
@@ -131,4 +131,4 @@ function generateSlug(title: string): string {
 }
 
 
-export const Event =  mongoose.model<IEvent>('Event', EventSchema);
+export const Event = mongoose.models.Event || mongoose.model<IEvent>('Event', EventSchema);

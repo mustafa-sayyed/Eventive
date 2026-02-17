@@ -40,9 +40,6 @@ export async function GET(
   } catch (error) {
     console.error("Error fetching events by slug:", error);
 
-    return NextResponse.json(
-      { message: "Internal Server Error" },
-      { status: 500 },
-    );
+    return NextResponse.json({ message: "Internal Server Error" }, { status: 500 });
   }
 }
