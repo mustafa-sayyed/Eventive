@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 let mongooseCachedConn = mongoose || null;
 
-async function connectDB() {
+export async function connectDB() {
   if (mongooseCachedConn) {
     return mongooseCachedConn;
   }
