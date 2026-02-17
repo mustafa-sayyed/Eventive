@@ -1,8 +1,11 @@
 import EventCard from "@/components/EventCard";
 import ExploreBtn from "@/components/ExploreBtn";
-import { events } from "@/lib/constant";
+import { IEvent } from "@/db/event.model";
 
-export default function Home() {
+export default async function Home() {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/events`);
+  const {events} = await response.json();
+  
   return (
     <section>
       <h1 className="text-center">

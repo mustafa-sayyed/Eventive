@@ -6,8 +6,8 @@ interface EventCardProps {
   image: string;
   slug: string;
   location: string;
-  date: string;
-  time: string;
+  date: Date;
+  time: Date;
 }
 
 const EventCard = ({ title, image, slug, location, date, time }: EventCardProps) => {
@@ -25,11 +25,11 @@ const EventCard = ({ title, image, slug, location, date, time }: EventCardProps)
       <div className="datetime">
         <div>
           <Image src="/icons/calendar.svg" alt="date" width={14} height={14} />
-          <p>{date}</p>
+          <p>{date.toLocaleDateString()}</p>
         </div>
         <div>
           <Image src="/icons/clock.svg" alt="time" width={14} height={14} />
-          <p>{time}</p>
+          <p>{time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
         </div>
       </div>
     </Link>
